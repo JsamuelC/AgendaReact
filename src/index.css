@@ -1,0 +1,362 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    background: #0a0a0a;
+    min-height: 100vh;
+    color: #ffffff;
+    line-height: 1.5;
+    font-weight: 400;
+}
+
+.container {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 40px 20px;
+}
+
+
+header {
+    text-align: center;
+    margin-bottom: 60px;
+    color: white;
+}
+
+header h1 {
+    font-size: 2.5rem;
+    font-weight: 300;
+    margin-bottom: 8px;
+    letter-spacing: -0.02em;
+    color: #ffffff;
+}
+
+header p {
+    font-size: 1rem;
+    opacity: 0.6;
+    font-weight: 400;
+    letter-spacing: 0.01em;
+}
+
+
+main {
+    display: grid;
+    gap: 40px;
+    grid-template-columns: 400px 1fr;
+    align-items: start;
+}
+
+@media (max-width: 1024px) {
+    main {
+        grid-template-columns: 1fr;
+        gap: 30px;
+    }
+}
+
+
+.add-contact-section {
+    background: #1a1a1a;
+    padding: 32px;
+    border-radius: 12px;
+    border: 1px solid #2a2a2a;
+    height: fit-content;
+    backdrop-filter: blur(10px);
+}
+
+.add-contact-section h2 {
+    color: #ffffff;
+    margin-bottom: 24px;
+    font-size: 1.25rem;
+    font-weight: 500;
+    letter-spacing: -0.01em;
+}
+
+
+.contact-form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+}
+
+.form-group label {
+    font-weight: 500;
+    color: #a0a0a0;
+    margin-bottom: 8px;
+    font-size: 0.875rem;
+    letter-spacing: 0.01em;
+}
+
+.form-group input {
+    padding: 14px 16px;
+    border: 1px solid #333333;
+    border-radius: 8px;
+    font-size: 0.95rem;
+    transition: all 0.2s ease;
+    background: #0f0f0f;
+    color: #ffffff;
+    font-weight: 400;
+}
+
+.form-group input:focus {
+    outline: none;
+    border-color: #6366f1;
+    background: #111111;
+    box-shadow: 0 0 0 1px #6366f1;
+}
+
+.form-group input::placeholder {
+    color: #666666;
+}
+
+
+.btn-primary {
+    background: #6366f1;
+    color: white;
+    border: none;
+    padding: 14px 24px;
+    border-radius: 8px;
+    font-size: 0.9rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    letter-spacing: 0.01em;
+}
+
+.btn-primary:hover {
+    background: #5856eb;
+    transform: translateY(-1px);
+}
+
+.btn-secondary {
+    background: #2a2a2a;
+    color: #ffffff;
+    border: 1px solid #333333;
+    padding: 10px 16px;
+    border-radius: 6px;
+    font-size: 0.85rem;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    font-weight: 500;
+}
+
+.btn-secondary:hover {
+    background: #333333;
+    border-color: #444444;
+}
+
+
+.contacts-section {
+    background: #1a1a1a;
+    padding: 32px;
+    border-radius: 12px;
+    border: 1px solid #2a2a2a;
+    backdrop-filter: blur(10px);
+}
+
+#contactsList {
+    transition: max-height 0.3s ease, overflow 0.3s ease;
+}
+
+#contactsList.collapsed {
+    max-height: 200px;
+    overflow: hidden;
+}
+
+.section-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 25px;
+    flex-wrap: wrap;
+    gap: 15px;
+}
+
+.section-header .btn-group {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
+
+.btn-toggle {
+    background: #2a2a2a;
+    color: #ffffff;
+    border: 1px solid #333333;
+    padding: 8px 14px;
+    border-radius: 6px;
+    font-size: 0.8rem;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    font-weight: 500;
+}
+
+.btn-toggle:hover {
+    background: #333333;
+    border-color: #444444;
+}
+
+.btn-toggle.collapsed {
+    background: #444444;
+    border-color: #555555;
+}
+
+.btn-toggle.collapsed:hover {
+    background: #555555;
+}
+
+.section-header h2 {
+    color: #ffffff;
+    font-size: 1.25rem;
+    font-weight: 500;
+    letter-spacing: -0.01em;
+}
+
+/* Lista de contactos */
+.contacts-list {
+    display: grid;
+    gap: 15px;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+}
+
+.contact-card {
+    background: #0f0f0f;
+    padding: 20px;
+    border-radius: 8px;
+    border: 1px solid #2a2a2a;
+    transition: all 0.2s ease;
+}
+
+.contact-card:hover {
+    transform: translateY(-1px);
+    border-color: #333333;
+    background: #111111;
+}
+
+.contact-info h3 {
+    color: #ffffff;
+    margin-bottom: 6px;
+    font-size: 1rem;
+    font-weight: 500;
+    letter-spacing: -0.01em;
+}
+
+.contact-info .phone {
+    color: #a0a0a0;
+    font-size: 0.875rem;
+    font-weight: 400;
+}
+
+
+.loading, .error, .empty-state {
+    text-align: center;
+    padding: 40px 20px;
+}
+
+.loading .spinner {
+    width: 32px;
+    height: 32px;
+    border: 2px solid #2a2a2a;
+    border-top: 2px solid #6366f1;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+    margin: 0 auto 16px;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+.error {
+    color: #e53e3e;
+    background: #fed7d7;
+    border-radius: 8px;
+    border: 1px solid #feb2b2;
+}
+
+.empty-state {
+    color: #a0a0a0;
+    background: #0f0f0f;
+    border-radius: 8px;
+    border: 1px solid #2a2a2a;
+}
+
+.empty-state p {
+    margin-bottom: 10px;
+}
+
+.empty-state p:last-child {
+    margin-bottom: 0;
+    font-size: 0.9rem;
+    opacity: 0.8;
+}
+
+
+.hidden {
+    display: none !important;
+}
+
+
+@media (max-width: 480px) {
+    .container {
+        padding: 15px;
+    }
+    
+    header h1 {
+        font-size: 2rem;
+    }
+    
+    .add-contact-section,
+    .contacts-section {
+        padding: 20px;
+    }
+    
+    .contacts-list {
+        grid-template-columns: 1fr;
+    }
+    
+    .section-header {
+        flex-direction: column;
+        align-items: stretch;
+    }
+    
+    .section-header h2 {
+        text-align: center;
+    }
+}
+
+
+* {
+    transition: all 0.2s ease;
+}
+
+
+button:focus,
+input:focus {
+    outline: 1px solid #6366f1;
+    outline-offset: 1px;
+}
+
+
+.contact-card:hover {
+    border-color: #333333;
+}
+
+.btn-primary:active {
+    transform: translateY(0);
+}
+
+.btn-secondary:active {
+    transform: translateY(0);
+}
+
